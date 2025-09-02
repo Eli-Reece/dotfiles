@@ -17,30 +17,43 @@ set $right l
 set $term kitty
 # Your preferred application launcher
 set $menu rofi -show drun
+# Browser
+set $browser firefox
 
+# VPN
 exec mullvad-vpn
+
+# Notification daemon
+exec swaync
+bindsym $mod+Shift+n exec swaync-client -t -sw
+
+# OpenRGB
+exec openrgb -p default.orp
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/eli/wallpaper/dark-waves.jpg fill
-#
+# output * bg /home/eli/wallpaper/dark-waves.jpg fill
+exec waypaper --restore
+
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-output DP-1 resolution 2560x1440 position 2560,0 transform 90
-output DP-2 resolution 2560x1440 position 0,625
+output DP-3 resolution 2560x1440 position 0 584
+output DP-2 resolution 2560x1440 position 2560 0 transform 90
+
+bindsym $mod+alt+l exec swaylock -f -i /home/eli/wallpaper/port.jpg
 
 ### Idle configuration
 #
 # Example configuration:
 #
-exec swayidle -w \
-        timeout 300 'swaylock -f -c 000000' \
-        timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-        before-sleep 'swaylock -f -c 000000'
+# exec swayidle -w \
+        # timeout 300 'swaylock -f -c 000000' \
+        # timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+        # before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -184,8 +197,8 @@ mode "resize" {
     # up will shrink the containers height
     # down will grow the containers height
     bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
+    bindsym $down resize shrink height 10px
+    bindsym $up resize grow height 10px
     bindsym $right resize grow width 10px
 
     # Ditto, with arrow keys

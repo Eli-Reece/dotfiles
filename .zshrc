@@ -50,8 +50,16 @@ alias ais='aichat -s'
 alias zshrc='m ~/.zshrc'
 alias reload='source ~/.zshrc'
 alias initvim='m ~/.config/nvim/init.vim'
+alias iv='initvim'
 alias swayconf='m ~/.config/sway/config'
+alias sc='swayconf'
 alias tmuxconf='m ~/.tmux.conf'
+
+# -----------------------------------------------------
+# Tmux
+# -----------------------------------------------------
+alias tls='tmux list-sessions'
+alias ta='tmux attach -t'
 
 # -----------------------------------------------------
 # Settings
@@ -76,6 +84,12 @@ alias gcredential="git config credential.helper store"
 # -----------------------------------------------------
 alias up='sudo pacman -Sy archlinux-keyring && sudo pacman -Syu'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+alias stor='du -sh * | sort -h'
+
+# -----------------------------------------------------
+# Music
+# -----------------------------------------------------
+alias ytdl="yt-dlp -x --audio-format opus -o '%(title)s.%(ext)s'"
 
 # -----------------------------------------------------
 # Functions

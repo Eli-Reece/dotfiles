@@ -58,8 +58,15 @@ get_plexamp() {
     fi
 }
 
-while true; do
+get_wifi() {
+    wifi_name=$(nmcli connection show --active | grep wifi | awk '{print $1}')
+    if [[ -z "$wifi_name" ]]; then
+        wifi_name="Not Connected"
+    fi
+    echo WIFI: $wifi_name
+}
 
+while true; do
     plexamp_info=$(get_plexamp)
     # Only add the plexamp info if it's non-empty
     if [ -n "$plexamp_info" ]; then
@@ -69,7 +76,7 @@ while true; do
     fi
     
     # Add your other status elements
-    status_line="${status_line}$(get_cpu) | $(get_memory) | $(get_volume) | $(get_datetime)"
+    status_line="${status_line}$(get_wifi) | $(get_cpu) | $(get_memory) | $(get_volume) | $(get_datetime)"
     echo "$status_line"
     sleep 1
 done
