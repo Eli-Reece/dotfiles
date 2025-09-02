@@ -21,6 +21,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Exports
 # -----------------------------------------------------
 export EDITOR=nvim
+export VISUAL=nvim
 export PATH="/usr/lib/ccache/bin/:$PATH"
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -55,6 +56,12 @@ alias swayconf='m ~/.config/sway/config'
 alias sc='swayconf'
 alias tmuxconf='m ~/.tmux.conf'
 
+#------------------------------------------------------
+# tmux
+#------------------------------------------------------
+alias tls='tmux list-sessions'
+alias ta='tmux attach -t'
+
 # -----------------------------------------------------
 # Tmux
 # -----------------------------------------------------
@@ -66,8 +73,14 @@ alias ta='tmux attach -t'
 # -----------------------------------------------------
 alias wifi='nmtui'
 
+#------------------------------------------------------
+# GNU
+#------------------------------------------------------
+alias ma='make all'
+alias mc='make clean'
+
 # -----------------------------------------------------
-# Git
+# git
 # -----------------------------------------------------
 alias gs="git status"
 alias ga="git add"
@@ -75,9 +88,7 @@ alias gc="git commit -m"
 alias gp="git push"
 alias gpl="git pull"
 alias gst="git stash"
-alias gsp="git stash; git pull"
-alias gcheck="git checkout"
-alias gcredential="git config credential.helper store"
+alias gcred="git config credential.helper store"
 
 # -----------------------------------------------------
 # System
